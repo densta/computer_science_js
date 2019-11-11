@@ -1,6 +1,7 @@
 import bucketSort from './bucketSort';
 import bubbleSort from './bubbleSort';
 import selectionSort from './selectionSort';
+import insertionSort from './insertionSort';
 
 const testCasesAscending = [
   [[], []],
@@ -11,8 +12,8 @@ const testCasesAscending = [
   [[1, -1, 1], [-1, 1, 1]],
 ];
 
-for (let numberOfRandomTestCases = 30; numberOfRandomTestCases >= 0; numberOfRandomTestCases--) {
-  const lengthOfArray = parseInt(Math.random() * 1000);
+for (let numberOfRandomTestCases = 10; numberOfRandomTestCases >= 0; numberOfRandomTestCases--) {
+  const lengthOfArray = parseInt(Math.random() * 30000);
   const unsortedArray = [];
   for (let i = 0; i < lengthOfArray; i++) {
     unsortedArray.push(parseInt(Math.random() * 1000000));
@@ -20,6 +21,8 @@ for (let numberOfRandomTestCases = 30; numberOfRandomTestCases >= 0; numberOfRan
   const sortedArray = unsortedArray.concat([]).sort((a, b) => a - b);
   testCasesAscending.push([unsortedArray, sortedArray]);
 }
+
+testCasesAscending.sort((a, b) => a[0].length - b[0].length);
 
 describe('bucket sort:', () => {
   testCasesAscending.forEach((testCase, i) => {
@@ -40,7 +43,7 @@ describe('bubble sort:', () => {
   });
 })
 
-describe('selectionSort sort:', () => {
+describe('selection sort:', () => {
   testCasesAscending.forEach((testCase, i) => {
     test(`running array No. ${i} with length ${testCase[0].length}`, () => {
       expect(selectionSort(testCase[0])).toEqual(testCase[1]);
@@ -48,3 +51,18 @@ describe('selectionSort sort:', () => {
   });
 })
 
+describe('insertion sort:', () => {
+  testCasesAscending.forEach((testCase, i) => {
+    test(`running array No. ${i} with length ${testCase[0].length}`, () => {
+      expect(insertionSort(testCase[0])).toEqual(testCase[1]);
+    });
+  });
+})
+
+describe('build in Array.prototype.sort:', () => {
+  testCasesAscending.forEach((testCase, i) => {
+    test(`running array No. ${i} with length ${testCase[0].length}`, () => {
+      expect(testCase[0].sort((a, b) => a - b)).toEqual(testCase[1]);
+    });
+  });
+})

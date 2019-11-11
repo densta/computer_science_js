@@ -6,3 +6,4 @@
 * Bucket sort O(n)
 * Bubble sort O(n ** 2)
 * Selection sort O(n ** 2)
+* Insertion sort O(n ** 2)
