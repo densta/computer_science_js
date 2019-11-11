@@ -1,4 +1,5 @@
-import bucketSort  from './bucketSort';
+import bucketSort from './bucketSort';
+import bubbleSort from './bubbleSort';
 
 const testCasesAscending = [
   [[], []],
@@ -13,7 +14,7 @@ for (let numberOfRandomTestCases = 30; numberOfRandomTestCases >= 0; numberOfRan
   const lengthOfArray = parseInt(Math.random() * 1000);
   const unsortedArray = [];
   for (let i = 0; i < lengthOfArray; i++) {
-    unsortedArray.push(parseInt(Math.random() * 1000000))
+    unsortedArray.push(parseInt(Math.random() * 1000000));
   }
   const sortedArray = unsortedArray.concat([]).sort((a, b) => a - b);
   testCasesAscending.push([unsortedArray, sortedArray]);
@@ -29,3 +30,12 @@ describe('bucket sort tests', () => {
     expect(() => bucketSort([4294967295, 0])).toThrow();
   });
 })
+
+describe('bubble sort tests', () => {
+  testCasesAscending.forEach((testCase, i) => {
+    test(`running array No. ${i} with length ${testCase[0].length}`, () => {
+      expect(bubbleSort(testCase[0])).toEqual(testCase[1]);
+    });
+  });
+})
+
