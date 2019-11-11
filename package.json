@@ -4,23 +4,28 @@
   "description": "Computer science in JavaScript",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/densta/computer_science_js.git"
   },
   "keywords": [
-    "computer",
-    "science",
-    "algorithm",
-    "data",
-    "structures"
+    "computer science",
+    "algorithmS",
+    "data structures"
   ],
   "author": "Pavlo Pysarchuk",
-  "license": "ISC",
+  "license": "GNU",
   "bugs": {
     "url": "https://github.com/densta/computer_science_js/issues"
   },
-  "homepage": "https://github.com/densta/computer_science_js#readme"
+  "homepage": "https://github.com/densta/computer_science_js#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "jest": "^24.9.0"
+  }
 }
