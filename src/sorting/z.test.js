@@ -1,5 +1,6 @@
 import bucketSort from './bucketSort';
 import bubbleSort from './bubbleSort';
+import selectionSort from './selectionSort';
 
 const testCasesAscending = [
   [[], []],
@@ -20,7 +21,7 @@ for (let numberOfRandomTestCases = 30; numberOfRandomTestCases >= 0; numberOfRan
   testCasesAscending.push([unsortedArray, sortedArray]);
 }
 
-describe('bucket sort tests', () => {
+describe('bucket sort:', () => {
   testCasesAscending.forEach((testCase, i) => {
     test(`running array No. ${i} with length ${testCase[0].length}`, () => {
       expect(bucketSort(testCase[0])).toEqual(testCase[1]);
@@ -31,10 +32,18 @@ describe('bucket sort tests', () => {
   });
 })
 
-describe('bubble sort tests', () => {
+describe('bubble sort:', () => {
   testCasesAscending.forEach((testCase, i) => {
     test(`running array No. ${i} with length ${testCase[0].length}`, () => {
       expect(bubbleSort(testCase[0])).toEqual(testCase[1]);
+    });
+  });
+})
+
+describe('selectionSort sort:', () => {
+  testCasesAscending.forEach((testCase, i) => {
+    test(`running array No. ${i} with length ${testCase[0].length}`, () => {
+      expect(selectionSort(testCase[0])).toEqual(testCase[1]);
     });
   });
 })
